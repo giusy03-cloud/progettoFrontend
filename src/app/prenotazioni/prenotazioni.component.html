@@ -1,0 +1,20 @@
+<div>
+  <h2>Prenotazione Camera</h2>
+    <div>
+      <label for="nomeUtente">Nome Utente</label>
+      <input type="text" id="nomeUtente" [(ngModel)]="prenotazione.nomeUtente" name="nomeUtente" required />
+    </div>
+
+    <div>
+      <label for="cameraId">Seleziona Camera</label>
+      <select id="cameraId" [(ngModel)]="prenotazione.cameraId" name="cameraId" required>
+        <option *ngFor="let camera of camere" [value]="camera.id">{{ camera.nome }} - {{ camera.tipo }}</option>
+      </select>
+    </div>
+
+    <button type="submit">Prenota</button>
+
+    <div *ngIf="successMessage" class="success">{{ successMessage }}</div>
+    <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+
+</div>

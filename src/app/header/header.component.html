@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-sm custom-light-blue flex-column text-center">
+  <div class="container-fluid">
+    <a class="navbar-brand mx-auto" href="#" id="navbarTitle" #navbarTitle>
+      <i class="{{icon}}"></i> {{ title }}
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link font-weight-bold text-primary" routerLink="/home">
+            <i class="fas fa-home"></i> Home
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link font-weight-bold text-success" routerLink="/chi-siamo">
+            <i class="fas fa-search"></i> Chi Siamo
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link font-weight-bold text-danger" routerLink="/login">
+            <i class="fas fa-user"></i> Login
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Contenitore principale dello slider -->
+<div id="image-slider">
+  <img id="slider-image" src="assets/img1.jpg" alt="Slideshow Image" />
+</div>
+
+<footer class="footer bg-primary text-white text-center py-3 mt-5">
+  <p class="mb-0">&copy; 2025 Desperation Vacation. All rights reserved.</p>
+</footer>
+

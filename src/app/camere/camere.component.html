@@ -1,0 +1,61 @@
+<div class="main-content">
+  <nav class="navbar navbar-expand-sm navbar-dark navbar-custom">
+    <div class="container-fluid">
+      <a class="navbar-brand text-white" href="/camere">
+        <i class="fas fa-bed"></i> Le nostre camere
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="d-flex align-items-center">
+        <a class="nav-link me-3">
+          <i class="fas fa-shopping-cart text-white"></i>
+          <span *ngIf="numeroElementiCarrello > 0" class="badge bg-danger ms-1">{{ numeroElementiCarrello }}</span>
+        </a>
+        <a class="nav-link font-weight-bold text-danger" (click)="logout()">
+          <i class="fas fa-sign-out-alt"></i> Logout
+        </a>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<div class="container">
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Tipo</th>
+      <th>Prezzo</th>
+      <th>Disponibilità</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let camera of camere">
+      <td>{{ camera.nome }}</td>
+      <td>{{ camera.tipo }}</td>
+      <td>{{ camera.prezzo | currency }}</td>
+      <td>{{ camera.disponibilita ? 'Disponibile' : 'Non disponibile' }}</td>
+      <td>
+        <!-- Bottone per aggiungere recensione -->
+        <button (click)="selezionaCamera(camera.id)">Aggiungi Recensione</button>
+
+        <!-- Aggiungi recensione se la camera è selezionata -->
+        <div *ngIf="selectedCameraId === camera.id">
+          <textarea [(ngModel)]="commento" placeholder="Scrivi la tua recensione..." rows="4" cols="50"></textarea><br />
+          <!-- Bottone per aggiungere recensione con icona nuvoletta -->
+          <button (click)="inviaRecensione()" class="btn btn-danger">
+            <i class="fas fa-cloud"></i> Aggiungi recensione
+          </button>
+        </div>
+
+        <!-- Prenota la camera -->
+        <button *ngIf="camera.disponibilita" class="btn btn-primary" (click)="prenotaCamera(camera.id)">Prenota</button>
+        <button (click)="resetDisponibilita(camera.id,true)" class="btn btn-success">Rilascia Camera</button>
+        <span *ngIf="!camera.disponibilita" class="text-muted">Non disponibile</span>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,60 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+    <!-- Titolo della navbar con icona e personalizzazione del colore -->
+    <a class="navbar-brand text-primary" href="#" style="font-size: 1.5rem; font-weight: bold;">
+      <i class="fas fa-cloud-sun"></i> Gestione Recensioni
+    </a>
+
+    <!-- Bottone per il menu hamburger (visibile su dispositivi mobili) -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Menu a discesa (Dropdown) per la gestione prenotazioni, utenti e logout -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto"> <!-- ms-auto per allineare a destra -->
+        <li class="nav-item">
+          <a class="btn btn-outline-primary" href="/admin/prenotazioni">
+            <i class="fas fa-calendar"></i> Gestione Prenotazioni
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="btn btn-outline-primary ms-3" href="/admin/users">
+            <i class="fas fa-user"></i> Gestione Utenti
+          </a>
+        </li>
+        <li class="nav-item">
+          <button class="btn btn-outline-danger ms-3" (click)="logout()">
+            <i class="fas fa-sign-out-alt"></i> Logout
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<!-- Corpo della pagina -->
+<div class="container mt-4">
+  <table class="table table-bordered">
+    <thead>
+    <tr>
+      <th>Nome Utente</th>
+      <th>Commento</th>
+      <th>Azioni</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let recensione of recensioni">
+      <td>{{ recensione.nomeUtente }}</td>  <!-- Aggiungi nome utente -->
+      <td>{{ recensione.commento }}</td>
+      <td>
+        <button class="btn btn-danger" (click)="deleteRecensione(recensione.id)">
+          <i class="fas fa-trash"></i> Elimina
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

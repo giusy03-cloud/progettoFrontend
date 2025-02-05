@@ -1,0 +1,173 @@
+/* Card Login e Registrazione */
+.login-container {
+  min-height: 100vh; /* Imposta altezza minima per centrare la card verticalmente */
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Centra verticalmente la card */
+}
+
+.card {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Aggiunge un'ombra leggera alla card */
+  border-radius: 10px; /* Rende gli angoli della card arrotondati */
+  overflow: hidden;
+  width: 100%;
+  max-width: 400px; /* Limita la larghezza della card */
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  color: #343a40; /* Colore del titolo */
+  margin-bottom: 1.5rem;
+  text-align: center; /* Allinea il titolo al centro */
+}
+
+.form-label {
+  font-weight: bold;
+}
+
+input.form-control, select.form-select {
+  border-radius: 5px;
+  padding: 10px; /* Aggiungi padding per migliorare l'interazione sui dispositivi mobili */
+}
+
+input.form-control:focus, select.form-select:focus {
+  border-color: #28a745; /* Colore del bordo quando il campo è in focus */
+  box-shadow: 0 0 5px rgba(40, 167, 69, 0.5); /* Ombra verde */
+}
+
+.invalid-feedback {
+  font-size: 0.9rem;
+  color: #dc3545; /* Colore rosso per i messaggi di errore */
+}
+
+.input-group {
+  position: relative;
+}
+
+.input-group-text {
+  background-color: #f1f1f1; /* Colore di sfondo dell'icona */
+  cursor: pointer;
+}
+
+.input-group-text i {
+  color: #007bff; /* Colore dell'icona */
+}
+
+.btn-success {
+  background-color: #28a745;
+  border-color: #28a745;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  width: 100%; /* Assicura che il bottone occupi tutta la larghezza disponibile */
+}
+
+.btn-link {
+  color: #007bff;
+}
+
+.btn-link:hover {
+  text-decoration: underline;
+}
+
+.mt-5 {
+  margin-top: 5rem;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.mb-3 {
+  margin-bottom: 1.5rem;
+}
+
+/* Aggiungi un po' di margine extra al bottone link per separarlo dal form */
+a.router-link {
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* Loading spinner */
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3; /* Colore di sfondo */
+  border-top: 4px solid #3498db; /* Colore del cerchio */
+  border-radius: 50%;
+  animation: spin 2s linear infinite; /* Animazione di rotazione */
+  margin: 20px auto;
+}
+
+/* Animazione per la rotazione del cerchio */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Navbar personalizzata con sfondo rosso */
+.custom-light-red {
+  background-color: #ff4d4d; /* Colore rosso chiaro */
+}
+
+.custom-light-red .navbar-brand {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.custom-light-red .navbar-nav .nav-link {
+  color: white;
+  font-weight: 500;
+}
+
+.custom-light-red .navbar-nav .nav-link:hover {
+  color: #ffd700; /* Colore giallo per il passaggio del mouse */
+}
+
+.custom-light-red .navbar-toggler-icon {
+  background-color: white; /* Cambia il colore dell'icona */
+}
+
+.custom-light-red .navbar-toggler {
+  border-color: white; /* Cambia il bordo del bottone toggler */
+}
+
+/* Navbar che si adatta agli schermi più piccoli */
+@media (max-width: 768px) {
+  .custom-light-red .navbar-nav {
+    text-align: center; /* Centrato il testo per i piccoli schermi */
+  }
+  .custom-light-red .navbar-nav .nav-item.active .nav-link {
+    color: #ffd700; /* Colore giallo per il link attivo */
+  }
+}
+
+/* Modifiche responsive per la Card */
+@media (max-width: 576px) {
+  .card {
+    width: 90%; /* Riduce la larghezza della card per i dispositivi mobili */
+    margin: 0 auto; /* Centra la card */
+  }
+
+  .form-control, .form-select {
+    padding: 12px; /* Aumenta il padding dei campi per una migliore interazione mobile */
+  }
+
+  .btn-success {
+    font-size: 1rem; /* Adatta la dimensione del testo del bottone */
+    padding: 12px;
+  }
+
+  .card-title {
+    font-size: 1.25rem; /* Riduce la dimensione del titolo per schermi piccoli */
+  }
+
+  .login-container {
+    padding: 15px; /* Aggiungi padding ai lati per migliorare la visualizzazione */
+  }
+}

@@ -1,0 +1,182 @@
+/* Navbar personalizzata */
+.navbar {
+  background-color: #007bff;
+}
+
+.navbar-brand {
+  color: white;
+  font-weight: bold;
+}
+
+.navbar-nav .nav-link {
+  color: white;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #ffd700;
+}
+
+.nav-link:hover {
+  text-decoration: underline; /* Sottolinea il link quando ci passi sopra */
+}
+
+/* Personalizza il pulsante per essere sicuro che venga visualizzato correttamente */
+button.btn {
+  font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+/* Pulsante con nuvoletta */
+button.btn i {
+  margin-right: 10px;
+}
+
+/* Specifica il pulsante all'interno del form */
+form button.btn.btn-primary {
+  font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  display: flex;
+  align-items: center;
+}
+
+/* Personalizzare il titolo */
+.titolo-recensione {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #007bff;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 1.5rem;
+}
+.titolo-recensione i {
+  color: #ffd700;  /* Colore dorato per l'icona */
+}
+
+/* Aggiungere un'ombra al testo per un effetto più moderno */
+.titolo-recensione {
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Personalizzazione del label Commento */
+.label-commento {
+  color: red;            /* Colore rosso */
+  font-weight: bold;     /* Grassetto */
+  font-style: italic;    /* Corsivo */
+}
+
+form button.btn.btn-primary i {
+  margin-right: 10px; /* Distanza tra l'icona e il testo */
+}
+
+/* Tabelle */
+.table th, .table td {
+  text-align: center;
+}
+
+.table img {
+  width: 100px;
+  height: 70px;
+  object-fit: cover;
+}
+
+.table td button {
+  margin-right: 5px;
+}
+
+/* Spazio sopra la tabella */
+.container {
+  max-width: 1200px;
+}
+
+.container h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Styling per l'icona del carrello */
+.navbar .fa-shopping-cart {
+  font-size: 1.5rem;
+}
+
+/* Media Queries per rendere il layout responsive */
+
+/* Schermi più piccoli (tablet, smartphone) */
+@media (max-width: 768px) {
+  .navbar-brand {
+    font-size: 1.2rem; /* Ridurre la dimensione del testo nella navbar per schermi piccoli */
+  }
+
+  .navbar-nav .nav-link {
+    font-size: 1rem; /* Ridurre la dimensione dei link nella navbar */
+  }
+
+  .titolo-recensione {
+    font-size: 1.4rem; /* Ridurre la dimensione del titolo */
+  }
+
+  .table {
+    font-size: 0.9rem; /* Ridurre la dimensione del testo nelle tabelle */
+  }
+
+  .container h2 {
+    font-size: 1.6rem; /* Ridurre la dimensione del titolo nella tabella */
+  }
+
+  .table td button {
+    padding: 8px 12px; /* Ridurre la dimensione dei pulsanti nella tabella */
+  }
+
+  .container {
+    padding: 15px; /* Aggiungere un po' di padding ai contenuti */
+    max-width: 100%; /* Fare in modo che la larghezza della container sia più reattiva */
+  }
+
+  .navbar-nav .nav-link {
+    font-size: 14px;
+  }
+  .btn-custom {
+    background-color: #3498db; /* Colore di sfondo blu */
+    color: white; /* Colore del testo */
+    border: none; /* Rimuovi il bordo */
+  }
+
+  .btn-custom:hover {
+    background-color: #2980b9; /* Colore di sfondo al passaggio del mouse */
+    color: white; /* Colore del testo al passaggio del mouse */
+  }
+
+}
+
+/* Schermi molto piccoli (smartphone, portrait) */
+@media (max-width: 480px) {
+  .navbar-brand {
+    font-size: 1rem; /* Ulteriore riduzione della dimensione del testo */
+  }
+
+  .navbar-nav .nav-link {
+    font-size: 0.9rem; /* Ancora più piccolo per i dispositivi molto piccoli */
+  }
+
+  .titolo-recensione {
+    font-size: 1.2rem; /* Ridurre ulteriormente la dimensione del titolo */
+  }
+
+  .table th, .table td {
+    font-size: 0.8rem; /* Font più piccolo per la tabella */
+  }
+
+  .container h2 {
+    font-size: 1.4rem; /* Ridurre la dimensione dei titoli nella tabella */
+  }
+
+  /* Ridurre le dimensioni dei pulsanti */
+  .table td button {
+    padding: 6px 10px;
+  }
+}

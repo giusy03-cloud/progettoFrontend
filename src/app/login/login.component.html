@@ -1,0 +1,64 @@
+<!-- Card Login -->
+<div class="login-container d-flex justify-content-center mt-5">
+  <div class="card mx-3" style="width: 15rem;">
+    <div class="card-body">
+      <h5 class="card-title text-center">Accedi</h5>
+      <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+
+        <!-- Campo Username -->
+        <div class="mb-3">
+          <label for="username" class="form-label">Nome utente</label>
+          <input
+            type="text"
+            class="form-control"
+            id="username"
+            placeholder="Inserisci il tuo nome utente"
+            [(ngModel)]="loginData.username"
+            name="username"
+            required
+            #username="ngModel"
+            [ngClass]="{'is-invalid': username.touched && username.invalid}"
+          />
+          <div *ngIf="username.touched && username.invalid" class="invalid-feedback">
+            <p *ngIf="username.errors?.['required']">Il nome utente è obbligatorio.</p>
+          </div>
+        </div>
+
+        <!-- Campo Password -->
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <div class="input-group">
+            <input
+              [type]="passwordVisible ? 'text' : 'password'"
+              class="form-control"
+              id="password"
+              placeholder="Inserisci la tua password"
+              [(ngModel)]="loginData.password"
+              name="password"
+              required
+              #password="ngModel"
+              [ngClass]="{'is-invalid': password.touched && password.invalid}"
+            />
+            <span class="input-group-text" (click)="togglePasswordVisibility()" style="cursor: pointer;">
+              <i class="fas" [ngClass]="passwordVisible ? 'fa-eye-slash' : 'fa-eye'"></i>
+            </span>
+          </div>
+          <div *ngIf="password.touched && password.invalid" class="invalid-feedback">
+            <p *ngIf="password.errors?.['required']">La password è obbligatoria.</p>
+          </div>
+        </div>
+
+        <!-- Bottone Accedi -->
+        <button type="submit" class="btn btn-primary w-100" [disabled]="loginForm.invalid || loading">Accedi</button>
+
+        <!-- Spinner di Caricamento -->
+        <div *ngIf="loading" class="d-flex justify-content-center my-3">
+          <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Caricamento...</span>
+          </div>
+        </div>
+        <a routerLink="/register" class="btn btn-link w-100 mt-3">Non hai un account? Registrati</a>
+      </form>
+    </div>
+  </div>
+</div>

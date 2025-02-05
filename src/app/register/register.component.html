@@ -1,0 +1,77 @@
+<!-- Card Registrazione -->
+<div class="login-container d-flex justify-content-center mt-5">
+  <div class="card mx-3" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title text-center">Registrati</h5>
+      <form (ngSubmit)="onRegister()" #registerForm="ngForm">
+
+        <!-- Campo Username -->
+        <div class="mb-3">
+          <label for="regUsername" class="form-label">Nome utente</label>
+          <input
+            type="text"
+            class="form-control"
+            id="regUsername"
+            placeholder="Crea un nome utente"
+            [(ngModel)]="registerData.username"
+            name="username"
+            required
+            #username="ngModel"
+            [ngClass]="{'is-invalid': username.touched && username.invalid}"
+          />
+          <div *ngIf="username.touched && username.invalid" class="invalid-feedback">
+            <p *ngIf="username.errors?.['required']">Il nome utente è obbligatorio.</p>
+          </div>
+        </div>
+
+        <!-- Campo Password -->
+        <div class="mb-3">
+          <label for="regPassword" class="form-label">Password</label>
+          <div class="input-group">
+            <input
+              [type]="passwordVisible ? 'text' : 'password'"
+              class="form-control"
+              id="regPassword"
+              placeholder="Crea una password"
+              [(ngModel)]="registerData.password"
+              name="password"
+              required
+              #password="ngModel"
+              [ngClass]="{'is-invalid': password.touched && password.invalid}"
+            />
+            <span class="input-group-text" (click)="togglePasswordVisibility()" style="cursor: pointer;">
+              <i class="fas" [ngClass]="passwordVisible ? 'fa-eye-slash' : 'fa-eye'"></i>
+            </span>
+          </div>
+          <div *ngIf="password.touched && password.invalid" class="invalid-feedback">
+            <p *ngIf="password.errors?.['required']">La password è obbligatoria.</p>
+          </div>
+        </div>
+
+        <!-- Campo Role -->
+        <div class="mb-3">
+          <label for="role" class="form-label">Ruolo</label>
+          <select
+            class="form-select"
+            id="role"
+            [(ngModel)]="registerData.role"
+            name="role"
+            required
+            #role="ngModel"
+            [ngClass]="{'is-invalid': role.touched && role.invalid}"
+          >
+            <option value="" disabled selected>Seleziona un ruolo</option>
+            <option value="admin">Admin</option>
+            <option value="user">User</option>
+          </select>
+          <div *ngIf="role.touched && role.invalid" class="invalid-feedback">
+            <p *ngIf="role.errors?.['required']">Il ruolo è obbligatorio.</p>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-success w-100" [disabled]="registerForm.invalid">Registrati</button>
+        <a routerLink="/login" class="btn btn-link w-100 mt-3">Hai già un account? Accedi</a>
+      </form>
+    </div>
+  </div>
+</div>

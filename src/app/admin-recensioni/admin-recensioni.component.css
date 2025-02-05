@@ -1,0 +1,33 @@
+
+/* Navbar */
+.navbar {
+  background-color: #f8f9fa;
+  box-shadow: 0 4px 2px -2px gray;
+}
+
+.navbar-brand {
+  font-weight: bold;
+}
+
+.navbar .btn-outline-danger {
+  margin-left: 20px;
+}
+
+/* Tabella recensioni */
+.table-responsive {
+  margin-top: 20px;
+}
+
+.table th, .table td {
+  text-align: center;
+}
+
+.table th {
+  background-color: #f1f1f1;
+}
+
+/* Pulsante di logout */
+.btn-outline-danger {
+  font-size: 14px;
+  border-radius: 5px;
+}
