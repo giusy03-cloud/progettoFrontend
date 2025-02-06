@@ -32,6 +32,7 @@ export class CamereComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.userId=this.authService.getUserId();
     this.loadAllCamere();  // Carica tutte le camere all'inizio
     this.updateNumeroElementiCarrello();
   }
@@ -80,28 +81,27 @@ export class CamereComponent implements OnInit {
     }
   }
 
-
-  // Funzione per prenotare la camera
   prenotaCamera(cameraId: number): void {
     const userId = this.authService.getUserId();
     const nomeUtente = this.authService.getUserName();
     if (userId !== null) {
       this.prenotazioniService.prenotaCamera(cameraId, userId, nomeUtente).subscribe(
         (response) => {
-          console.log(response);
+          console.log('Risposta dalla prenotazione:', response);
           alert('Camera prenotata con successo');
 
           // Dopo la prenotazione, aggiorna la disponibilità della camera localmente
           const camera = this.camere.find((c) => c.id === cameraId);
           if (camera) {
             camera.disponibilita = false; // Rende la camera non disponibile
+            camera.prenotatoDa=userId;
           }
 
           this.updateNumeroElementiCarrello();  // Ricalcola il numero di camere prenotate
         },
         (error) => {
-          console.error(error);
-          alert('Errore nella prenotazione');
+          console.error('Errore durante la prenotazione:', error);
+          alert(`Errore nella prenotazione: ${error.message || error.statusText}`);
         }
       );
     } else {
@@ -109,13 +109,17 @@ export class CamereComponent implements OnInit {
     }
   }
 
+
   // Gestisce il logout
-  logout() {
+
+
+  // Gestisce il logout e resetta il carrello
+  logout(): void {
     console.log('Logout chiamato');
     this.authService.logout().subscribe({
       next: (response) => {
         console.log(response);
-        this.numeroElementiCarrello = 0;  // Reset del numero di elementi nel carrello
+        this.numeroElementiCarrello = 0;  // Reset del numero di camere nel carrello
         this.router.navigate(['/login']).then(() => {
           window.location.reload(); // Forza il refresh per evitare problemi di cache
         });
@@ -126,6 +130,8 @@ export class CamereComponent implements OnInit {
       }
     });
   }
+
+
 
   resetDisponibilita(cameraId: number, disponibilita: boolean): void {
     const requestBody = { cameraId, disponibilita }; // Crea l'oggetto con i parametri
@@ -143,10 +149,14 @@ export class CamereComponent implements OnInit {
     );
   }
 
-  // Aggiorna il numero di elementi nel carrello
+
+  // Aggiorna il numero di camere prenotate per l'utente
   updateNumeroElementiCarrello(): void {
-    let camerePrenotate = this.camere.filter((camera) => !camera.disponibilita);
-    this.numeroElementiCarrello = camerePrenotate.length;
-    console.log('Numero di camere nel carrello:', this.numeroElementiCarrello);
+    // Filtra le camere prenotate dall'utente corrente
+    const camerePrenotate = this.camere.filter(
+      (camera) => camera.prenotatoDa === this.userId
+    );
+    this.numeroElementiCarrello = camerePrenotate.length; // Calcola il numero di camere prenotate per l'utente
+    console.log('Numero di camere nel carrello per l\'utente:', this.numeroElementiCarrello);
   }
 }

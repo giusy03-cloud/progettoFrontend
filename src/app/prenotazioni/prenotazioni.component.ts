@@ -48,6 +48,8 @@ export class PrenotazioniComponent implements OnInit {
     );
   }
 
+  /*
+
   prenotaCamera(cameraId: number, userId: number, nomeUtente: string): void {
     // Effettua la prenotazione della camera
     this.prenotazioneService.prenotaCamera(cameraId, userId, nomeUtente).subscribe(
@@ -77,6 +79,12 @@ export class PrenotazioniComponent implements OnInit {
         console.error(error);  // Errore durante la prenotazione
       }
     );
+
+
   }
+
+   */
+
+
 
 }
