@@ -22,12 +22,7 @@ export class LoginComponent {
 
   constructor(private router: Router, private authService: AuthService) {}
 
-  ngOnInit() {
-    // Verifica se l'utente è già autenticato (dopo il login con Google OAuth)
-    if (this.authService.isAuthenticated()) {
-      this.router.navigate(['/camere']);
-    }
-  }
+
   togglePasswordVisibility() {
     this.passwordVisible = !this.passwordVisible;
   }
