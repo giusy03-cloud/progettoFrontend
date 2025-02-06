@@ -32,10 +32,9 @@ export class PrenotazioniComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.loadPrenotazioni(); // Carica tutte le prenotazioni
+    this.loadPrenotazioni();
   }
 
-  // Carica le prenotazioni
   loadPrenotazioni(): void {
     this.prenotazioneService.getAllPrenotazioni().subscribe(
       (data) => {

@@ -1,5 +1,4 @@
 
-/* Navbar */
 .navbar {
   background-color: #f8f9fa;
   box-shadow: 0 4px 2px -2px gray;
@@ -13,7 +12,7 @@
   margin-left: 20px;
 }
 
-/* Tabella recensioni */
+
 .table-responsive {
   margin-top: 20px;
 }
@@ -26,7 +25,6 @@
   background-color: #f1f1f1;
 }
 
-/* Pulsante di logout */
 .btn-outline-danger {
   font-size: 14px;
   border-radius: 5px;

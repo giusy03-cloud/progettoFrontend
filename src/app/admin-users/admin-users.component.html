@@ -1,28 +1,26 @@
-<!-- Navbar -->
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container">
-    <!-- Titolo della navbar e icona utente -->
+
     <a class="navbar-brand custom-title" href="#">
       <i class="fas fa-user"></i> Gestione Utenti
     </a>
 
-    <!-- Bottone per il menu hamburger (visibile su dispositivi mobili) -->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <!-- Menu a discesa (Dropdown) per la gestione recensioni, prenotazioni e logout -->
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto"> <!-- ms-auto per allineare a destra -->
+      <ul class="navbar-nav ms-auto">
         <li class="nav-item">
           <a class="btn btn-primary d-flex align-items-center" href="/admin/recensioni">
-            <i class="fas fa-cloud me-2"></i> <!-- Icona nuvola -->
+            <i class="fas fa-cloud me-2"></i>
             Gestione Recensioni
           </a>
         </li>
         <li class="nav-item">
           <a class="btn btn-success d-flex align-items-center ms-3" href="/admin/prenotazioni">
-            <i class="fas fa-calendar-check me-2"></i> <!-- Icona calendario con check -->
+            <i class="fas fa-calendar-check me-2"></i>
             Gestione Prenotazioni
           </a>
         </li>
@@ -36,12 +34,8 @@
   </div>
 </nav>
 
-
-
-<!-- Contenuto -->
 <div class="container mt-4">
 
-  <!-- Aggiungi la classe 'table-responsive' qui -->
   <div class="table-responsive">
     <table class="table">
       <thead>

@@ -13,6 +13,6 @@ import {HeaderComponent} from '../header/header.component';
 })
 export class HomeComponent {
   constructor(private route: ActivatedRoute) {
-    // Usa ActivatedRoute qui
+
   }
 }

@@ -21,24 +21,21 @@ export class AuthService {
 
   constructor(private http: HttpClient,private router:Router) {}
 
-  // Metodo per registrare un nuovo utente (username, password, role)
   register(username: string, password: string, role: string): Observable<any> {
-    const user = { username, password, role }; // Invia i dati per la registrazione
+    const user = { username, password, role };
     return this.http.post(`${this.apiUrl}/register`, user, { withCredentials: true });
   }
 
-  // Metodo per effettuare il login (username, password)
 
   login(username: string, password: string): Observable<any> {
     const user = { username, password };
     return this.http.post<LoginResponse>(`${this.apiUrl}/login`, user, { withCredentials: true }).pipe(
       tap(response => {
-        console.log('Risposta del login:', response);  // Aggiungi il log per controllare la risposta
+        console.log('Risposta del login:', response);
 
         if (response && response.username && response.role && response.userId) {
-          // Salva le informazioni dell'utente nel sessionStorage
           sessionStorage.setItem('username', response.username);
-          sessionStorage.setItem('role', response.role.toLowerCase());  // Convertiamo in minuscolo per sicurezza
+          sessionStorage.setItem('role', response.role.toLowerCase());
           sessionStorage.setItem('userId', response.userId.toString());
           console.log('Username salvato:', sessionStorage.getItem('username'));
           console.log('Role salvato:', sessionStorage.getItem('role'));
@@ -58,36 +55,33 @@ export class AuthService {
       withCredentials: true
     }).pipe(
       tap((response) => {
-        console.log(response.message); // Visualizza il messaggio di successo nel log
-        sessionStorage.clear();  // Pulisce l'intera sessione
+        console.log(response.message);
+        sessionStorage.clear();
       })
     );
   }
 
-
-
-  // Metodo per verificare se l'utente è autenticato
   isAuthenticated(): boolean {
     const username = sessionStorage.getItem('username');
-    console.log('Utente autenticato:', username);  // Aggiungi questo log per vedere se l'utente è autenticato
+    console.log('Utente autenticato:', username);
     return username !== null;
     // Verifica se l'utente è loggato
   }
   // Metodo per ottenere il ruolo dell'utente
 
   getRole(): string {
-    return sessionStorage.getItem('role')?.toLowerCase() || ''; // Ritorna il ruolo o stringa vuota
+    return sessionStorage.getItem('role')?.toLowerCase() || '';
   }
 
   getUserId(): number | null {
     const userId = sessionStorage.getItem('userId');
     console.log('User ID memorizzato nel sessionStorage:', userId);
-    return userId ? parseInt(userId, 10) : null;  // Converte l'ID in numero, se presente
+    return userId ? parseInt(userId, 10) : null;
   }
 
   getUserName(): string {
     // Recupera il nome utente dal sessionStorage
-    return sessionStorage.getItem('username') || '';  // Restituisce il nome utente salvato nel sessionStorage
+    return sessionStorage.getItem('username') || '';
   }
 
 

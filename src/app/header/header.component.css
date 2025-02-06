@@ -1,124 +1,121 @@
-/* Titolo centrato con spazio sotto */
+
 .navbar-brand {
-  font-size: 1.8rem; /* Dimensione del titolo */
+  font-size: 1.8rem;
   font-weight: bold;
-  margin-bottom: 15px; /* Spazio sotto il titolo */
+  margin-bottom: 15px;
   text-align: center;
 }
 
 .custom-light-blue {
-  background-color: #b3e0ff; /* Azzurro chiarissimo */
-  color: #333; /* Colore del testo scuro per contrasto */
+  background-color: #b3e0ff;
+  color: #333;
 }
 
-/* Voci di menu orizzontali */
+
 .navbar-nav {
-  flex-direction: row; /* Dispone le voci in orizzontale */
+  flex-direction: row;
 }
 
 .navbar-brand {
-  margin-right: 8px; /* Distanza tra l'icona e il testo */
+  margin-right: 8px;
 }
 
 .navbar-nav .nav-link {
-  font-size: 1.2rem; /* Dimensione del testo */
-  margin: 0 10px; /* Spazio tra le voci */
+  font-size: 1.2rem;
+  margin: 0 10px;
   text-align: center;
-  transition: color 0.3s ease; /* Transizione al passaggio del mouse */
+  transition: color 0.3s ease;
 }
 
-/* Effetto hover sulle voci del menu */
+
 .navbar-nav .nav-link:hover {
-  color: #007bff; /* Colore azzurro quando il mouse passa sopra */
-  text-decoration: underline; /* Sottolineatura */
-  text-shadow: 1px 1px 5px rgba(0, 123, 255, 0.5); /* Ombra leggera */
+  color: #007bff;
+  text-decoration: underline;
+  text-shadow: 1px 1px 5px rgba(0, 123, 255, 0.5);
 }
 
-/* Slider per l'immagine */
+
 #image-slider {
   position: relative;
   width: 100%;
-  height: calc(100vh - 60px); /* Altezza totale dello schermo meno la navbar */
+  height: calc(100vh - 60px);
   overflow: hidden;
   display: flex;
-  justify-content: center; /* Centra orizzontalmente l'immagine */
-  align-items: center; /* Centra verticalmente l'immagine */
+  justify-content: center;
+  align-items: center;
 }
 
 #slider-image {
-  width: 90%; /* Adatta l'immagine alla larghezza */
-  height: 90%; /* Adatta l'immagine all'altezza */
-  object-fit: contain; /* Ritaglia l'immagine per adattarla */
+  width: 90%;
+  height: 90%;
+  object-fit: contain;
   opacity: 1;
   transition: opacity 0.5s ease-in-out;
 }
 
 
-
-/* Ottimizzazioni per dispositivi mobili */
 @media (max-width: 768px) {
   .navbar-nav {
-    flex-direction: column; /* Dispone le voci in colonna su mobile */
-    text-align: center; /* Centra le voci */
+    flex-direction: column;
+    text-align: center;
   }
 
   .navbar-nav .nav-link {
-    margin: 10px 0; /* Spazio verticale tra le voci */
-    font-size: 1rem; /* Font più piccolo su mobile */
+    margin: 10px 0;
+    font-size: 1rem;
   }
 
   .navbar-brand {
-    font-size: 1.5rem; /* Riduce il titolo su mobile */
+    font-size: 1.5rem;
   }
 
-  /* Slider per l'immagine su schermi piccoli */
   #image-slider {
-    height: calc(100vh - 50px); /* Altezza regolata per navbar più piccola */
+    height: calc(100vh - 50px);
   }
 }
 
-/* Ottimizzazioni per tablet e dispositivi di medie dimensioni */
+
 @media (max-width: 1024px) and (min-width: 769px) {
   .navbar-nav .nav-link {
-    font-size: 1.1rem; /* Font leggermente più piccolo su tablet */
-    margin: 5px 15px; /* Margine equilibrato */
+    font-size: 1.1rem;
+    margin: 5px 15px;
   }
 
   .navbar-brand {
-    font-size: 1.6rem; /* Dimensione moderata su tablet */
+    font-size: 1.6rem;
   }
 
   #image-slider {
-    height: calc(100vh - 60px); /* Mantiene proporzioni */
+    height: calc(100vh - 60px);
   }
 }
 
-/* Ottimizzazioni per schermi molto piccoli */
+
 @media (max-width: 480px) {
   .navbar-brand {
-    font-size: 1.2rem; /* Riduce il titolo per piccoli schermi */
-    margin-bottom: 10px; /* Margine ridotto */
+    font-size: 1.2rem;
+    margin-bottom: 10px;
   }
 
   .navbar-nav .nav-link {
-    font-size: 0.9rem; /* Font più piccolo per adattarsi */
+    font-size: 0.9rem;
   }
 
   #image-slider {
-    height: calc(100vh - 40px); /* Altezza regolata per navbar compatta */
+    height: calc(100vh - 40px);
   }
 
   .footer {
-    background-color: #f8f9fa; /* Colore di sfondo chiaro */
-    padding: 20px 0; /* Padding superiore e inferiore */
-    text-align: center; /* Centra il testo */
-    font-size: 16px; /* Imposta una dimensione di font */
-    color: #333; /* Colore del testo */
+    background-color: #f8f9fa;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 16px;
+    color: #333;
   }
 
   .footer p {
-    margin: 0; /* Rimuove margini per un layout più pulito */
-    font-weight: bold; /* Aggiunge grassetto al testo */
+    margin: 0;
+    font-weight: bold;
   }
 
 }

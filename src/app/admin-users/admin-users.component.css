@@ -1,22 +1,21 @@
-/* Stili per il titolo nella navbar */
+
 .custom-title {
-  color: #4CAF50; /* Colore verde */
-  font-family: 'Arial', sans-serif; /* Imposta il font */
-  font-weight: bold; /* Grassetto */
-  font-size: 24px; /* Dimensione del font */
-  text-transform: uppercase; /* Maiuscolo */
-  transition: color 0.3s ease; /* Effetto di transizione */
+  color: #4CAF50;
+  font-family: 'Arial', sans-serif;
+  font-weight: bold;
+  font-size: 24px;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
 }
 
 .custom-title:hover {
-  color: #1E7E34; /* Colore verde più scuro al passaggio del mouse */
+  color: #1E7E34;
 }
 
 .navbar {
-  padding: 1rem; /* Aggiungi un po' di spazio attorno alla navbar */
+  padding: 1rem;
 }
 
-/* Stili per il bottone "Gestione Recensioni" */
 .navbar .btn {
   color: #fff;
   background-color: #007bff;
@@ -28,7 +27,7 @@
   border-color: #0056b3;
 }
 
-/* Responsività */
+
 @media (max-width: 768px) {
   .navbar .ms-auto {
     margin-top: 10px;
@@ -41,16 +40,16 @@
   }
 
   .custom-title {
-    font-size: 20px; /* Riduce la dimensione del font per i dispositivi mobili */
+    font-size: 20px;
   }
 
   .navbar .btn {
-    width: 100%; /* Rende il bottone "Gestione Recensioni" più grande e centrato su dispositivi mobili */
+    width: 100%;
     margin-top: 10px;
   }
-  /* Stili per la tabella responsiva */
+
   .table-responsive {
-    margin-bottom: 20px; /* Aggiunge uno spazio sotto la tabella */
+    margin-bottom: 20px;
   }
 
 }

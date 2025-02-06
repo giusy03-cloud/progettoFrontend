@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { RouterLink } from '@angular/router';
 import { initializeImageSlider } from '../../assets/imageSlider';
-import{ChiSiamoComponent} from '../chi-siamo/chi-siamo.component';
 
 
 @Component({
@@ -23,7 +22,7 @@ export class HeaderComponent implements AfterViewInit {
   constructor() {}
 
   ngAfterViewInit() {
-    // Esegui solo nel browser
+
     initializeImageSlider();
 
 

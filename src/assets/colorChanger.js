@@ -5,6 +5,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   setInterval(() => {
     title.style.color = colors[currentColorIndex];
-    currentColorIndex = (currentColorIndex + 1) % colors.length; // Cicla tra i colori
-  }, 1000); // Cambia colore ogni 1 secondo
+    currentColorIndex = (currentColorIndex + 1) % colors.length;
+  }, 1000);
 });

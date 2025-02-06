@@ -45,12 +45,10 @@
             </span>
         </td>
         <td>
-          <!-- Bottone per aggiungere recensione -->
           <button class="btn btn-warning btn-sm me-1" (click)="selezionaCamera(camera.id)" aria-label="Aggiungi Recensione">
             <i class="fas fa-pencil-alt"></i> Recensione
           </button>
 
-          <!-- Form per recensione -->
           <div *ngIf="selectedCameraId === camera.id" class="mt-2">
             <textarea class="form-control" [(ngModel)]="commento" placeholder="Scrivi la tua recensione..." rows="3"></textarea>
             <button class="btn btn-danger btn-sm mt-2" (click)="inviaRecensione()">
@@ -58,7 +56,6 @@
             </button>
           </div>
 
-          <!-- Prenotazione -->
           <button
             *ngIf="camera.disponibilita"
             class="btn btn-primary btn-sm me-1"
@@ -68,12 +65,10 @@
             <i class="fas fa-calendar-check"></i> Prenota
           </button>
 
-          <!-- Rilascia Camera -->
           <button class="btn btn-success btn-sm me-1" (click)="resetDisponibilita(camera.id, true)">
             <i class="fas fa-undo"></i> Rilascia
           </button>
 
-          <!-- Messaggio se non disponibile -->
           <span *ngIf="!camera.disponibilita" class="text-muted">
               <i class="fas fa-times-circle"></i> Non disponibile
             </span>

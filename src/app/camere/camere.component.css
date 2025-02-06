@@ -1,4 +1,4 @@
-/* Navbar personalizzata */
+
 .navbar {
   background-color: #007bff;
 }
@@ -17,22 +17,21 @@
 }
 
 .nav-link:hover {
-  text-decoration: underline; /* Sottolinea il link quando ci passi sopra */
+  text-decoration: underline;
 }
 
-/* Personalizza il pulsante per essere sicuro che venga visualizzato correttamente */
+
 button.btn {
   font-size: 16px;
   padding: 10px 20px;
   border-radius: 5px;
 }
 
-/* Pulsante con nuvoletta */
 button.btn i {
   margin-right: 10px;
 }
 
-/* Specifica il pulsante all'interno del form */
+
 form button.btn.btn-primary {
   font-size: 16px;
   padding: 10px 20px;
@@ -44,7 +43,6 @@ form button.btn.btn-primary {
   align-items: center;
 }
 
-/* Personalizzare il titolo */
 .titolo-recensione {
   font-size: 1.8rem;
   font-weight: bold;
@@ -55,23 +53,21 @@ form button.btn.btn-primary {
   margin-bottom: 1.5rem;
 }
 .titolo-recensione i {
-  color: #ffd700;  /* Colore dorato per l'icona */
+  color: #ffd700;
 }
 
-/* Aggiungere un'ombra al testo per un effetto più moderno */
 .titolo-recensione {
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Personalizzazione del label Commento */
 .label-commento {
-  color: red;            /* Colore rosso */
-  font-weight: bold;     /* Grassetto */
-  font-style: italic;    /* Corsivo */
+  color: red;
+  font-weight: bold;
+  font-style: italic;
 }
 
 form button.btn.btn-primary i {
-  margin-right: 10px; /* Distanza tra l'icona e il testo */
+  margin-right: 10px;
 }
 
 /* Tabelle */
@@ -89,7 +85,7 @@ form button.btn.btn-primary i {
   margin-right: 5px;
 }
 
-/* Spazio sopra la tabella */
+
 .container {
   max-width: 1200px;
 }
@@ -99,83 +95,79 @@ form button.btn.btn-primary i {
   margin-bottom: 1.5rem;
 }
 
-/* Styling per l'icona del carrello */
 .navbar .fa-shopping-cart {
   font-size: 1.5rem;
 }
 
-/* Media Queries per rendere il layout responsive */
 
-/* Schermi più piccoli (tablet, smartphone) */
 @media (max-width: 768px) {
   .navbar-brand {
-    font-size: 1.2rem; /* Ridurre la dimensione del testo nella navbar per schermi piccoli */
+    font-size: 1.2rem;
   }
 
   .navbar-nav .nav-link {
-    font-size: 1rem; /* Ridurre la dimensione dei link nella navbar */
+    font-size: 1rem;
   }
 
   .titolo-recensione {
-    font-size: 1.4rem; /* Ridurre la dimensione del titolo */
+    font-size: 1.4rem;
   }
 
   .table {
-    font-size: 0.9rem; /* Ridurre la dimensione del testo nelle tabelle */
+    font-size: 0.9rem;
   }
 
   .container h2 {
-    font-size: 1.6rem; /* Ridurre la dimensione del titolo nella tabella */
+    font-size: 1.6rem;
   }
 
   .table td button {
-    padding: 8px 12px; /* Ridurre la dimensione dei pulsanti nella tabella */
+    padding: 8px 12px;
   }
 
   .container {
-    padding: 15px; /* Aggiungere un po' di padding ai contenuti */
-    max-width: 100%; /* Fare in modo che la larghezza della container sia più reattiva */
+    padding: 15px;
+    max-width: 100%;
   }
 
   .navbar-nav .nav-link {
     font-size: 14px;
   }
   .btn-custom {
-    background-color: #3498db; /* Colore di sfondo blu */
-    color: white; /* Colore del testo */
-    border: none; /* Rimuovi il bordo */
+    background-color: #3498db;
+    color: white;
+    border: none;
   }
 
   .btn-custom:hover {
-    background-color: #2980b9; /* Colore di sfondo al passaggio del mouse */
-    color: white; /* Colore del testo al passaggio del mouse */
+    background-color: #2980b9;
+    color: white;
   }
 
 }
 
-/* Schermi molto piccoli (smartphone, portrait) */
+
 @media (max-width: 480px) {
   .navbar-brand {
-    font-size: 1rem; /* Ulteriore riduzione della dimensione del testo */
+    font-size: 1rem;
   }
 
   .navbar-nav .nav-link {
-    font-size: 0.9rem; /* Ancora più piccolo per i dispositivi molto piccoli */
+    font-size: 0.9rem;
   }
 
   .titolo-recensione {
-    font-size: 1.2rem; /* Ridurre ulteriormente la dimensione del titolo */
+    font-size: 1.2rem;
   }
 
   .table th, .table td {
-    font-size: 0.8rem; /* Font più piccolo per la tabella */
+    font-size: 0.8rem;
   }
 
   .container h2 {
-    font-size: 1.4rem; /* Ridurre la dimensione dei titoli nella tabella */
+    font-size: 1.4rem;
   }
 
-  /* Ridurre le dimensioni dei pulsanti */
   .table td button {
     padding: 6px 10px;
   }

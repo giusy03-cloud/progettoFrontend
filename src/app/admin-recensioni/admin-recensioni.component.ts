@@ -14,7 +14,7 @@ import { RouterModule } from '@angular/router';
 })
 export class AdminRecensioniComponent implements OnInit {
   recensioni: any[] = [];
-  commento: string = '';  // Nuovo campo per il commento
+  commento: string = '';
 
   constructor(
     private recensioneService: RecensioneService,
@@ -23,11 +23,10 @@ export class AdminRecensioniComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    // Verifica se l'utente è un admin e recupera le recensioni
+
     this.loadRecensioni();
   }
 
-  // Carica tutte le recensioni
   loadRecensioni(): void {
     this.recensioneService.getAllRecensioni().subscribe(
       (data) => {
@@ -41,9 +40,8 @@ export class AdminRecensioniComponent implements OnInit {
     );
   }
 
-  // Aggiungi recensione (modifica il metodo per includere il nome utente)
   addRecensione(): void {
-    const nomeUtente = this.authService.getUserName();  // Metodo che recupera il nome utente loggato
+    const nomeUtente = this.authService.getUserName();
     const recensioneData = {
       commento: this.commento,
       nomeUtente: this.authService.getUserName()
@@ -52,7 +50,7 @@ export class AdminRecensioniComponent implements OnInit {
     this.recensioneService.addRecensione(recensioneData).subscribe(
       (response) => {
         alert(response.message);
-        this.loadRecensioni();  // Ricarica le recensioni dopo l'aggiunta
+        this.loadRecensioni();
       },
       (error) => {
         console.error('Errore nell\'aggiunta della recensione', error);
@@ -61,16 +59,15 @@ export class AdminRecensioniComponent implements OnInit {
     );
   }
 
-  // Elimina recensione
+
   deleteRecensione(id: number): void {
     if (confirm('Sei sicuro di voler eliminare questa recensione?')) {
       this.recensioneService.deleteRecensione(id).subscribe(() => {
-        this.loadRecensioni();  // Ricarica la lista dopo l'eliminazione
+        this.loadRecensioni();
       });
     }
   }
 
-  // Logout
   logout(): void {
     this.authService.logout().subscribe({
       next: () => {

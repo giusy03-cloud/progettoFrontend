@@ -15,12 +15,11 @@ export class RecensioneService {
 
   constructor(private http: HttpClient) { }
 
-  // Metodo per aggiungere la recensione
+
   addRecensione(recensioneData: { commento: string, nomeUtente: string }): Observable<ResponseMessage> {
     return this.http.post<ResponseMessage>(`${this.apiUrl}/aggiungi`, recensioneData);
   }
 
-  // Metodo per ottenere tutte le recensioni (solo per admin)
   getAllRecensioni(): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/all`);
   }

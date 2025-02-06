@@ -32,7 +32,7 @@ export class AdminUsersComponent implements OnInit{
   deleteUser(userId: number): void {
     if (confirm('Sei sicuro di voler eliminare questo utente?')) {
       this.userService.deleteUser(userId).subscribe(() => {
-        this.loadUsers(); // Ricarica la lista dopo l'eliminazione
+        this.loadUsers();
       });
     }
   }
@@ -41,7 +41,7 @@ export class AdminUsersComponent implements OnInit{
     this.authService.logout().subscribe({
       next: (response) => {
         console.log('Logout effettuato con successo');
-        this.router.navigate(['/login']); // Redirect alla pagina di login dopo il logout
+        this.router.navigate(['/login']);
       },
       error: (err) => {
         console.error('Errore durante il logout', err);

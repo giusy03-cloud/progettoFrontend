@@ -20,14 +20,14 @@ export class PrenotazioneService {
 
   // Metodo per prenotare una camera
   prenotaCamera(cameraId: number, userId: number, nomeUtente: string): Observable<any> {
-    const url = `${this.apiUrl}/prenota`; // Assicurati che l'endpoint esista
-    const body = { userId, cameraId, nomeUtente}; // Aggiungi i dati necessari per la prenotazione
-    return this.http.post<any>(url, body); // Richiesta POST per prenotare la camera
+    const url = `${this.apiUrl}/prenota`;
+    const body = { userId, cameraId, nomeUtente};
+    return this.http.post<any>(url, body);
   }
 
   getAllPrenotazioni(): Observable<Prenotazione[]> {
     return this.http.get<Prenotazione[]>(this.apiUrl).pipe(
-      tap(data => console.log('Prenotazioni caricate:', data)), // Per debug
+      tap(data => console.log('Prenotazioni caricate:', data)),
       catchError((error) => {
         console.error('Errore nel caricamento delle prenotazioni:', error);
         return throwError(() => new Error('Errore nel caricamento delle prenotazioni'));
@@ -38,6 +38,6 @@ export class PrenotazioneService {
 
   // Metodo per eliminare una prenotazione
   deletePrenotazione(id: number): Observable<any> {
-    return this.http.delete<any>(`${this.apiUrl}/${id}`);  // L'URL corretto è /api/prenotazioni/{id}
+    return this.http.delete<any>(`${this.apiUrl}/${id}`);
   }
 }

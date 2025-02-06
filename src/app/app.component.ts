@@ -22,7 +22,7 @@ import{AdminPrenotazioniComponent} from './admin-prenotazioni/admin-prenotazioni
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    RouterModule,  // Importa solo RouterModule senza forRoot
+    RouterModule,
     HeaderComponent,
     HomeComponent,
     ChiSiamoComponent,

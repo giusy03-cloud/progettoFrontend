@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import{CommonModule} from '@angular/common';
 import{RouterModule} from '@angular/router';
-import{RouterLink} from '@angular/router';
 import{PrenotazioneService} from '../prenotazione.service';
 import {AuthService} from '../auth.service';
 import{Router} from '@angular/router';
@@ -15,12 +14,12 @@ import{Router} from '@angular/router';
 })
 export class AdminPrenotazioniComponent {
 
-  prenotazioni: any[] = [];  // Array per contenere le prenotazioni
+  prenotazioni: any[] = [];
 
   constructor(private prenotazioneService: PrenotazioneService,private authService:AuthService, private router:Router) {}
 
   ngOnInit(): void {
-    this.loadPrenotazioni();  // Carica le prenotazioni quando il componente è inizializzato
+    this.loadPrenotazioni();
   }
 
 
@@ -41,19 +40,19 @@ export class AdminPrenotazioniComponent {
   deletePrenotazione(prenotazioneId: number): void {
     if (confirm('Sei sicuro di voler eliminare questa prenotazione?')) {
       this.prenotazioneService.deletePrenotazione(prenotazioneId).subscribe(() => {
-        this.loadPrenotazioni();  // Ricarica la lista dopo l'eliminazione
+        this.loadPrenotazioni();
       });
     }
   }
 
 
   logout(): void {
-    console.log("Logout chiamato");  // Verifica che il metodo venga chiamato
+    console.log("Logout chiamato");
     this.authService.logout().subscribe({
       next: (response) => {
-        console.log("Logout riuscito", response);  // Log di conferma
+        console.log("Logout riuscito", response);
         this.router.navigate(['/login']).then(() => {
-          window.location.reload();  // Forza il refresh per evitare problemi di cache
+          window.location.reload();
         });
       },
       error: (error) => {
