@@ -21,24 +21,23 @@ export class AuthService {
 
   constructor(private http: HttpClient,private router:Router) {}
 
-  // Metodo per registrare un nuovo utente (username, password, role)
+
   register(username: string, password: string, role: string): Observable<any> {
-    const user = { username, password, role }; // Invia i dati per la registrazione
+    const user = { username, password, role };
     return this.http.post(`${this.apiUrl}/register`, user, { withCredentials: true });
   }
 
-  // Metodo per effettuare il login (username, password)
 
   login(username: string, password: string): Observable<any> {
     const user = { username, password };
     return this.http.post<LoginResponse>(`${this.apiUrl}/login`, user, { withCredentials: true }).pipe(
       tap(response => {
-        console.log('Risposta del login:', response);  // Aggiungi il log per controllare la risposta
+        console.log('Risposta del login:', response);
 
         if (response && response.username && response.role && response.userId) {
           // Salva le informazioni dell'utente nel sessionStorage
           sessionStorage.setItem('username', response.username);
-          sessionStorage.setItem('role', response.role.toLowerCase());  // Convertiamo in minuscolo per sicurezza
+          sessionStorage.setItem('role', response.role.toLowerCase());
           sessionStorage.setItem('userId', response.userId.toString());
           console.log('Username salvato:', sessionStorage.getItem('username'));
           console.log('Role salvato:', sessionStorage.getItem('role'));
@@ -58,8 +57,8 @@ export class AuthService {
       withCredentials: true
     }).pipe(
       tap((response) => {
-        console.log(response.message); // Visualizza il messaggio di successo nel log
-        sessionStorage.clear();  // Pulisce l'intera sessione
+        console.log(response.message);
+        sessionStorage.clear();
       })
     );
   }
