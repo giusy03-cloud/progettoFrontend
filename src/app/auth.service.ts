@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, tap } from 'rxjs';
-import {Router} from '@angular/router';
+import { Router } from '@angular/router';
 
 interface LoginResponse {
   username: string;
@@ -9,8 +9,8 @@ interface LoginResponse {
   userId: number;
 }
 
-interface LogoutResponse{
-  message:string;
+interface LogoutResponse {
+  message: string;
 }
 
 @Injectable({
@@ -19,13 +19,12 @@ interface LogoutResponse{
 export class AuthService {
   private apiUrl = 'http://localhost:8080/api/users';
 
-  constructor(private http: HttpClient,private router:Router) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   register(username: string, password: string, role: string): Observable<any> {
     const user = { username, password, role };
     return this.http.post(`${this.apiUrl}/register`, user, { withCredentials: true });
   }
-
 
   login(username: string, password: string): Observable<any> {
     const user = { username, password };
@@ -47,13 +46,13 @@ export class AuthService {
     );
   }
 
+
+
   logout(): Observable<any> {
     sessionStorage.removeItem('username');
     sessionStorage.removeItem('role');
 
-    return this.http.post<LogoutResponse>(`${this.apiUrl}/logout`, {}, {
-      withCredentials: true
-    }).pipe(
+    return this.http.post<LogoutResponse>(`${this.apiUrl}/logout`, {}, { withCredentials: true }).pipe(
       tap((response) => {
         console.log(response.message);
         sessionStorage.clear();
@@ -65,9 +64,7 @@ export class AuthService {
     const username = sessionStorage.getItem('username');
     console.log('Utente autenticato:', username);
     return username !== null;
-    // Verifica se l'utente è loggato
   }
-  // Metodo per ottenere il ruolo dell'utente
 
   getRole(): string {
     return sessionStorage.getItem('role')?.toLowerCase() || '';
@@ -80,11 +77,6 @@ export class AuthService {
   }
 
   getUserName(): string {
-    // Recupera il nome utente dal sessionStorage
     return sessionStorage.getItem('username') || '';
   }
-
-
-
-
 }

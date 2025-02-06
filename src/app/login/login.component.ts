@@ -22,6 +22,12 @@ export class LoginComponent {
 
   constructor(private router: Router, private authService: AuthService) {}
 
+  ngOnInit() {
+    // Verifica se l'utente è già autenticato (dopo il login con Google OAuth)
+    if (this.authService.isAuthenticated()) {
+      this.router.navigate(['/camere']);
+    }
+  }
   togglePasswordVisibility() {
     this.passwordVisible = !this.passwordVisible;
   }
@@ -43,6 +49,7 @@ export class LoginComponent {
           console.log('Navigando alla pagina delle camere...');
           this.router.navigate(['/camere']);
         } else if (role === 'admin') {
+          // Se è un 'admin', navigo alla pagina delle prenotazioni
           console.log('Navigando alla pagina delle prenotazioni...');
           this.router.navigate(['/admin/users']);
         }
@@ -58,7 +65,9 @@ export class LoginComponent {
   }
 
 
+
   goToRegister() {
     this.router.navigate(['/register']);  // Naviga alla pagina di registrazione
   }
+
 }
