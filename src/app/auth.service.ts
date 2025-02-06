@@ -64,29 +64,26 @@ export class AuthService {
   }
 
 
-
-  // Metodo per verificare se l'utente è autenticato
   isAuthenticated(): boolean {
     const username = sessionStorage.getItem('username');
-    console.log('Utente autenticato:', username);  // Aggiungi questo log per vedere se l'utente è autenticato
+    console.log('Utente autenticato:', username);
     return username !== null;
-    // Verifica se l'utente è loggato
   }
-  // Metodo per ottenere il ruolo dell'utente
+
 
   getRole(): string {
-    return sessionStorage.getItem('role')?.toLowerCase() || ''; // Ritorna il ruolo o stringa vuota
+    return sessionStorage.getItem('role')?.toLowerCase() || '';
   }
 
   getUserId(): number | null {
     const userId = sessionStorage.getItem('userId');
     console.log('User ID memorizzato nel sessionStorage:', userId);
-    return userId ? parseInt(userId, 10) : null;  // Converte l'ID in numero, se presente
+    return userId ? parseInt(userId, 10) : null;
   }
 
   getUserName(): string {
     // Recupera il nome utente dal sessionStorage
-    return sessionStorage.getItem('username') || '';  // Restituisce il nome utente salvato nel sessionStorage
+    return sessionStorage.getItem('username') || '';
   }
 
 
