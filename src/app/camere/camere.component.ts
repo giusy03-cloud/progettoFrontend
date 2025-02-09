@@ -126,17 +126,26 @@ export class CamereComponent implements OnInit {
   }
 
   resetDisponibilita(cameraId: number, disponibilita: boolean): void {
-    const requestBody = { cameraId, disponibilita };
-    this.camereService.resetDisponibilita(requestBody).subscribe(
+    const userId = this.authService.getUserId(); // Ottieni l'ID dell'utente autenticato
+    if (userId === null) {
+      alert('Utente non autenticato!');
+      return;
+    }
+    const request = {
+      cameraId,
+      disponibilita,
+      utenteLoggato: userId
+    };
+
+    this.camereService.resetDisponibilita(request).subscribe(
       (response) => {
         console.log(response);
-        alert('Disponibilità della camera aggiornata con successo');
+        alert('Disponibilità aggiornata con successo');
         this.loadAllCamere();
-        this.updateNumeroElementiCarrello();
       },
       (error) => {
-        console.error('Errore nel reset delle camere', error);
-        alert('Errore nel ripristino delle camere');
+        console.error(error);
+        alert('Non puoi modificare la disponibilità di una camera che non hai prenotato!');
       }
     );
   }

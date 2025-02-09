@@ -1,27 +1,32 @@
-
+<!-- Navbar per la gestione delle prenotazioni -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-
+    <!-- Logo della navbar con un'icona e il titolo "Gestione Prenotazioni" -->
     <a class="navbar-brand text-primary" href="#" style="font-size: 1.5rem; font-weight: bold;">
       <i class="fas fa-calendar-alt"></i> Gestione Prenotazioni
     </a>
-
+    <!-- Bottone per il menu a tendina quando la navbar è visualizzata su dispositivi più piccoli -->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
+    <!-- Contenitore degli elementi di navigazione.
+    I pulsanti utilizzano classi Bootstrap (btn btn-outline-primary e btn-outline-danger)
+    per dare uno stile chiaro e intuitivo. -->
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
+        <!-- Pulsante per la gestione delle recensioni -->
         <li class="nav-item">
           <a class="btn btn-outline-primary" href="/admin/recensioni">
             <i class="fas fa-cloud"></i> Gestione Recensioni
           </a>
         </li>
+        <!-- Pulsante per la gestione degli utenti -->
         <li class="nav-item">
           <a class="btn btn-outline-primary ms-3" href="/admin/users">
             <i class="fas fa-user"></i> Gestione Utenti
           </a>
         </li>
+        <!-- Pulsante per il logout -->
         <li class="nav-item">
           <button class="btn btn-outline-danger ms-3" (click)="logout()">
             <i class="fas fa-sign-out-alt"></i> Logout
@@ -31,23 +36,25 @@
     </div>
   </div>
 </nav>
-
+<!-- Contenitore principale con un margine superiore per separarlo dalla navbar -->
 <div class="container mt-4">
   <div class="table-responsive">
     <!-- Tabella responsive, si adatta a schermi più piccoli con scroll orizzontale -->
     <table class="table table-bordered">
       <thead>
       <tr>
-        <th>Nome Utente</th>
-        <th>Nome Camera</th>
-        <th>Azioni</th>
+        <th>Nome Utente</th> <!-- Colonna per il nome dell'utente che ha effettuato la prenotazione -->
+        <th>Nome Camera</th> <!-- Colonna per il nome della camera prenotata -->
+        <th>Azioni</th> <!-- Colonna per le azioni disponibili -->
       </tr>
       </thead>
       <tbody>
+      <!-- Ciclo su tutte le prenotazioni disponibili per popolare la tabella -->
       <tr *ngFor="let prenotazione of prenotazioni">
-        <td>{{ prenotazione.nomeUtente }}</td>
-        <td>{{ prenotazione.cameraNome }}</td>
+        <td>{{ prenotazione.nomeUtente }}</td> <!-- Mostra il nome dell'utente-->
+        <td>{{ prenotazione.cameraNome }}</td> <!-- Mostra il nome della camera prenotata-->
         <td>
+          <!-- Pulsante per eliminare la prenotazione, chiama la funzione deletePrenotazione -->
           <button class="btn btn-danger" (click)="deletePrenotazione(prenotazione.id)">
             <i class="fas fa-trash"></i> Elimina
           </button>
