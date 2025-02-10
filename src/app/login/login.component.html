@@ -1,7 +1,22 @@
 <div class="login-container d-flex justify-content-center mt-5">
-  <div class="card mx-3" style="width: 20rem;">
+  <div class="card mx-3 position-relative" style="width: 20rem;">
+    <!-- Pulsante per tornare alla Home -->
+    <a
+      routerLink="/home"
+      class="btn btn-light position-absolute top-0 end-0 m-2"
+      style="z-index: 1;"
+    >
+      Home
+    </a>
+
     <div class="card-body">
-      <h5 class="card-title text-center">Accedi</h5>
+      <!-- Titolo Modernizzato -->
+      <h5
+        class="card-title text-center fw-bold"
+        style="font-size: 1.8rem; color: #6c63ff; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);"
+      >
+        Accedi
+      </h5>
 
       <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
         <div class="mb-3">
@@ -65,7 +80,6 @@
 
         <a routerLink="/register" class="btn btn-link w-100 mt-3">Non hai un account? Registrati</a>
       </form>
-
     </div>
   </div>
 </div>
